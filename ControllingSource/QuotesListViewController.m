@@ -77,7 +77,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Quote *quote = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = quote.famousQuote;
+    cell.textLabel.text = quote.personName;
 }
 
 - (void)insertNewObject:(id)sender
@@ -85,8 +85,6 @@
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Quote *newQuote = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    newQuote.famousQuote = @"This should be a famous quote";
     
     NSError *error = nil;
     
